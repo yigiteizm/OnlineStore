@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,16 +9,19 @@ public class Store {
 
 
 
-    public class Store {
-
         public static void main(String[] args) {
-            // Initialize variables
+
+
+
+
+          // Initialize variables
             ArrayList<Product> inventory = new ArrayList<Product>();
             ArrayList<Product> cart = new ArrayList<Product>();
             double totalAmount = 0.0;
 
             // Load inventory from CSV file
             loadInventory("products.csv", inventory);
+
 
             // Create scanner to read user input
             Scanner scanner = new Scanner(System.in);
@@ -51,6 +56,23 @@ public class Store {
         }
 
         public static void loadInventory(String fileName, ArrayList<Product> inventory) {
+            try{
+                FileReader products =new FileReader("product.csv");
+                BufferedReader bufferedReader = new BufferedReader(products);
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] details = line.split(",");
+                    String sku = details[0];
+                    String name = details[1];
+                    double price = Double.parseDouble(details[2]);
+                    inventory.add(new Product(sku, name, price, ""));
+                }
+            } catch (Exception e) {
+                System.out.println("Error reading inventory file: " + e.getMessage());
+            }
+        }
+
+
             // This method should read a CSV file with product information and
             // populate the inventory ArrayList with com.pluralsight.Product objects. Each line
             // of the CSV file contains product information in the following format:
@@ -59,17 +81,33 @@ public class Store {
             //
             // where id is a unique string identifier, name is the product name,
             // price is a double value representing the price of the product
-        }
+
 
         public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
-            // This method should display a list of products from the inventory,
+            System.out.println("We have this product:");
+            for (Product product:inventory){
+                System.out.println(System.out.println(product.getSku() + ": " + product.getName()
+                        + product.getDepartment() + " - $" + product.getPrice() );
+            }
+
+        }
+
+    private static Product findProductById(String input, ArrayList<Product> inventory) {
+    }
+
+
+    // This method should display a list of products from the inventory,
             // and prompt the user to add items to their cart. The method should
             // prompt the user to enter the ID of the product they want to add to
             // their cart. The method should
             // add the selected product to the cart ArrayList.
-        }
+
 
         public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
+            System.out.println("Your final cart:");
+
+
+
             // This method should display the items in the cart ArrayList, along
             // with the total cost of all items in the cart. The method should
             // prompt the user to remove items from their cart by entering the ID
@@ -78,6 +116,11 @@ public class Store {
         }
 
         public static void checkOut(ArrayList<Product> cart, double totalAmount) {
+
+
+
+
+
             // This method should calculate the total cost of all items in the cart,
             // and display a summary of the purchase to the user. The method should
             // prompt the user to confirm the purchase, and deduct the total cost
@@ -85,10 +128,13 @@ public class Store {
         }
 
         public static Product findProductById(String id, ArrayList<Product> inventory) {
+
+
             // This method should search the inventory ArrayList for a product with
             // the specified ID, and return the corresponding com.pluralsight.Product object. If
             // no product with the specified ID is found, the method should return
             // null.
         }
-    }
 }
+
+
