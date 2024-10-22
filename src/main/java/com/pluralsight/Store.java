@@ -71,11 +71,22 @@ public class Store {
     }
 
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
-        // This method should display a list of products from the inventory,
-        // and prompt the user to add items to their cart. The method should
-        // prompt the user to enter the ID of the product they want to add to
-        // their cart. The method should
-        // add the selected product to the cart ArrayList.
+
+        System.out.println("Our Product Selection:");
+        for (Product product : inventory) {
+            System.out.println(product.getSku() + " | " + product.getName() + " | " + product.getPrice());
+        }
+
+        System.out.println("To add an item to your cart, enter the product ID:  ");
+        String inputId = scanner.nextLine();
+        Product product = findProductById(inputId,inventory);
+
+        if (product != null){
+            cart.add(product);
+            System.out.println(product.getName() + " Selected item has been added.");
+        }else{
+            System.out.println("No matching product was found for the ID provided.");
+        }
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
@@ -94,10 +105,12 @@ public class Store {
     }
 
     public static Product findProductById(String id, ArrayList<Product> inventory) {
-        // This method should search the inventory ArrayList for a product with
-        // the specified ID, and return the corresponding com.pluralsight.Product object. If
-        // no product with the specified ID is found, the method should return
-        // null.
+
+        for (Product product : inventory) {
+            if (product.getSku().equalsIgnoreCase(id)) {
+                return product;
+            }
+        }
         return null;
     }
 }
