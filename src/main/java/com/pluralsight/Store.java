@@ -124,7 +124,7 @@ public class Store {
 
     public static void checkOut(ArrayList<Product> cart, double totalAmount) {
         if (cart.isEmpty()) {
-            System.out.println("Your cars is looking empty.");
+            System.out.println("Your cart is looking empty.");
             return;
         }
 
