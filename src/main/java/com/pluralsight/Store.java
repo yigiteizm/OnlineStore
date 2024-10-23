@@ -77,7 +77,7 @@ public class Store {
             System.out.println(product.getSku() + " | " + product.getName() + " | " + product.getPrice());
         }
 
-        System.out.println("To add an item to your cart, enter the product ID:  ");
+        System.out.println("To add an item to your cart, enter the product Sku:  ");
         String inputId = scanner.nextLine();
         Product product = findProductById(inputId,inventory);
 
@@ -85,18 +85,18 @@ public class Store {
             cart.add(product);
             System.out.println(product.getName() + " Selected item has been added.");
         }else{
-            System.out.println("No matching product was found for the ID provided.");
+            System.out.println("No matching product was found for the Sku provided.");
         }
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
         if (cart.isEmpty()){
-            System.out.println("Oops, your cart is empty. ");
+            System.out.println("There is no selected product in your cart. ");
             return;
         }
 
         System.out.println("Here is Your Cart: ");
-        totalAmount = 0; //resets
+        totalAmount = 0;
         for (Product product : cart) {
             System.out.println(product.getSku() + " | " + product.getName() + " | $" + product.getPrice());
             totalAmount += product.getPrice();
@@ -112,11 +112,11 @@ public class Store {
 
             if (removeProduct != null) {
                 cart.remove(removeProduct);
-                totalAmount -= removeProduct.getPrice(); // Update total amount
+                totalAmount -= removeProduct.getPrice();
                 System.out.println(removeProduct.getName() + " Product has been removed from your cart.");
                 System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
             } else {
-                System.out.println("Product is not present in the cart.");
+                System.out.println("Product is not found in the cart.");
             }
         }
     }
@@ -124,7 +124,7 @@ public class Store {
 
     public static void checkOut(ArrayList<Product> cart, double totalAmount) {
         if (cart.isEmpty()) {
-            System.out.println("Your cart is looking empty.");
+            System.out.println("Your carts is looking empty.");
             return;
         }
 

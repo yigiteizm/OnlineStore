@@ -46,15 +46,19 @@ Here are screenshots that show the main features of the application.
 Displaying Avaliable Products list.
 ![Listing Products.JPG](imgs%2FListing%20Products.JPG)
 
+
+
 Adding product function to the cart.
 ![SELECTED ITEM ADDING.JPG](imgs%2FSELECTED%20ITEM%20ADDING.JPG)
+
+
 
 Removing product function from the cart.
 ![Product removal.JPG](imgs%2FProduct%20removal.JPG)
 
 ## Future Work
 
-- Add the ability to update the quantity of products in the cart and allow the same product to be added multiple times.
+- Implement functionality to update product quantities in the cart and allow multiple additions of the same product.
 - Different payment methods can be added.
 
 ## Resources
