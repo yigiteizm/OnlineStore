@@ -1,17 +1,20 @@
 # Project Title
 
 ## Description of the Project
-
-Briefly describe what this Java console application does. Mention its purpose and who the intended users are. Explain the main functionality and what problems it aims to solve.
-
-![Class Diagram](path/to/your/class_diagram.png)
+This is a simple Java console application meant to be a simulator for an e-store.
+The users are allowed to view available products, manage a shopping cart, and checkout.
+Users can also follow these steps:
+1. Users can browse the selection of available items.
+2. Users can add or remove products from their cart.
+3. Users can finalize their transactions.
 
 ## User Stories
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
+List the user stories that guided the development of your application.
+- As a user, I want to have a user-friendly products display screen, so that I can easily view all available items and their details.
+- As a user, I want to receive a confirmation message after adding a product to my cart, so that I can know the action was successful.
+- As a user, I want to have the option to remove items from my cart easily, so that I can manage my selections before checkout.
+- As a user, I want to see the total amount in my cart clearly, so that I can understand my expenses before making a purchase.
 
 ## Setup
 
@@ -34,36 +37,37 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Technologies Used
 
-- Java: Mention the version you are using.
-- Any additional libraries or frameworks used in the project.
+- Java: Amazon Corretto version 17.0.12.
+- IntelliJ IDEA.
 
 ## Demo
+Here are screenshots that show the main features of the application.
 
-Include screenshots or GIFs that show your application in action. Use tools like [Giphy Capture](https://giphy.com/apps/giphycapture) to record a GIF of your application.
+Displaying Avaliable Products list.
+![Listing Products.JPG](imgs%2FListing%20Products.JPG)
 
-![Application Screenshot](path/to/your/screenshot.png)
+Adding product function to the cart.
+![SELECTED ITEM ADDING.JPG](imgs%2FSELECTED%20ITEM%20ADDING.JPG)
+
+Removing product function from the cart.
+![Product removal.JPG](imgs%2FProduct%20removal.JPG)
 
 ## Future Work
 
-Outline potential future enhancements or functionalities you might consider adding:
-
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- Add the ability to update the quantity of products in the cart and allow the same product to be added multiple times.
+- Different payment methods can be added.
 
 ## Resources
 
 List resources such as tutorials, articles, or documentation that helped you during the project.
 
-- [Java Programming Tutorial](https://www.example.com)
-- [Effective Java](https://www.example.com)
+- [Java Programming Tutorial](https://www.w3schools.com/java/)
+- [Brightspace Java](https://yearup.brightspace.com/d2l/home/8605)
 
 ## Team Members
 
-- **Yigit Demirci** - Student developer.
+- **Yigit Demirci** - Project Developer.
 
 ## Thanks
 
-Express gratitude towards those who provided help, guidance, or resources:
-
 - Thank you to Raymond Maroun for continuous support and guidance.
-- A special thanks to all teammates for their dedication and teamwork.

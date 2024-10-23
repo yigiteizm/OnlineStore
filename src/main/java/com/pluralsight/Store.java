@@ -94,7 +94,7 @@ public class Store {
             System.out.println("Oops, your cart is empty. ");
             return;
         }
-        // sum of items
+
         System.out.println("Here is Your Cart: ");
         totalAmount = 0; //resets
         for (Product product : cart) {
@@ -102,7 +102,7 @@ public class Store {
             totalAmount += product.getPrice();
         }
         System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
-        //removing items
+
         System.out.println("Do you want to remove any product from your cart?\nPlease respond with Yes or No ");
         String answer = scanner.nextLine().trim();
         if (answer.equalsIgnoreCase("yes")){
@@ -129,7 +129,7 @@ public class Store {
         }
 
         System.out.println("Your Check Out Summary is ready: ");
-        totalAmount = 0; //resets
+        totalAmount = 0;
         for (Product product : cart) {
             totalAmount += product.getPrice();
         }
