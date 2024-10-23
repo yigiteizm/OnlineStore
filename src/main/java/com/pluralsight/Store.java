@@ -90,12 +90,37 @@ public class Store {
     }
 
     public static void displayCart(ArrayList<Product> cart, Scanner scanner, double totalAmount) {
-        // This method should display the items in the cart ArrayList, along
-        // with the total cost of all items in the cart. The method should
-        // prompt the user to remove items from their cart by entering the ID
-        // of the product they want to remove. The method should update the cart ArrayList and totalAmount
-        // variable accordingly.
+        if (cart.isEmpty()){
+            System.out.println("Oops, your cart is empty. ");
+            return;
+        }
+        // sum of items
+        System.out.println("Here is Your Cart: ");
+        totalAmount = 0; //resets
+        for (Product product : cart) {
+            System.out.println(product.getSku() + " | " + product.getName() + " | $" + product.getPrice());
+            totalAmount += product.getPrice();
+        }
+        System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
+        //removing items
+        System.out.println("Do you want to remove any product from your cart?\nPlease respond with Yes or No ");
+        String answer = scanner.nextLine().trim();
+        if (answer.equalsIgnoreCase("yes")){
+            System.out.println("Please enter product Sku to remove it from the cart: ");
+            String productId = scanner.nextLine().trim();
+            Product removeProduct = findProductById(productId, cart); //helper looking productId in cart
+
+            if (removeProduct != null) {
+                cart.remove(removeProduct);
+                totalAmount -= removeProduct.getPrice(); // Update total amount
+                System.out.println(removeProduct.getName() + " Product has been removed from your cart.");
+                System.out.printf("Total Amount of Products: $%.2f%n", totalAmount);
+            } else {
+                System.out.println("Product is not present in the cart.");
+            }
+        }
     }
+
 
     public static void checkOut(ArrayList<Product> cart, double totalAmount) {
         // This method should calculate the total cost of all items in the cart,
