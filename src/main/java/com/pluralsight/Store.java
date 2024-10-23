@@ -123,10 +123,17 @@ public class Store {
 
 
     public static void checkOut(ArrayList<Product> cart, double totalAmount) {
-        // This method should calculate the total cost of all items in the cart,
-        // and display a summary of the purchase to the user. The method should
-        // prompt the user to confirm the purchase, and deduct the total cost
-        // from their account if they confirm.
+        if (cart.isEmpty()) {
+            System.out.println("Your cars is looking empty.");
+            return;
+        }
+
+        System.out.println("Your Check Out Summary is ready: ");
+        totalAmount = 0; //resets
+        for (Product product : cart) {
+            totalAmount += product.getPrice();
+        }
+        System.out.printf("Total Amount: $%.2f%n", totalAmount);
     }
 
     public static Product findProductById(String id, ArrayList<Product> inventory) {
